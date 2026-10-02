@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { HowToBuy } from "@/components/HowToBuy";
 import { MarsMission } from "@/components/MarsMission";
+import { MarketOverview } from "@/components/MarketOverview";
 import { Navbar } from "@/components/Navbar";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
       <Navbar />
       <main id="main">
         <Hero />
+        <MarketOverview />
         <About />
         <MarsMission />
         <HowToBuy />
