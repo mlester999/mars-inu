@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import { ArrowUpRightIcon, MenuIcon, XIcon } from "@/components/Icons";
 
@@ -21,9 +22,15 @@ export function Navbar() {
     <header className={`site-nav ${scrolled ? "site-nav--scrolled" : ""}`}>
       <div className="site-nav__inner page-width">
         <a className="brand" href="#home" onClick={closeMenu} aria-label="Mars Inu home">
-          <span className="brand__mark" aria-hidden="true">
-            <span />
-          </span>
+          <Image
+            className="brand__icon"
+            src="/images/mars-inu-logo.png"
+            alt=""
+            width={48}
+            height={48}
+            sizes="42px"
+            aria-hidden="true"
+          />
           <span className="brand__wordmark">MARS <b>INU</b></span>
         </a>
 

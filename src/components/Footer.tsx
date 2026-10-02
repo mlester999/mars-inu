@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { XIcon } from "@/components/Icons";
 import { siteConfig } from "@/config/site";
 
@@ -6,7 +7,15 @@ export function Footer() {
     <footer className="site-footer">
       <div className="page-width site-footer__main">
         <a className="brand brand--footer" href="#home" aria-label="Mars Inu home">
-          <span className="brand__mark" aria-hidden="true"><span /></span>
+          <Image
+            className="brand__icon"
+            src="/images/mars-inu-logo.png"
+            alt=""
+            width={48}
+            height={48}
+            sizes="42px"
+            aria-hidden="true"
+          />
           <span className="brand__wordmark">MARS <b>INU</b></span>
         </a>
         <nav className="site-footer__links" aria-label="Footer navigation">

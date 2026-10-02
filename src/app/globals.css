@@ -283,34 +283,13 @@ a:focus-visible {
   color: var(--white);
 }
 
-.brand__mark {
-  position: relative;
-  display: grid;
-  width: 31px;
-  height: 31px;
-  place-items: center;
-  border: 1px solid rgba(255, 177, 112, 0.78);
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #fb9b61 0, #c64127 42%, #6f2119 74%, #1c0b0a 100%);
-  box-shadow: 0 0 20px rgba(232, 108, 50, 0.25);
-}
-
-.brand__mark::after {
-  position: absolute;
-  width: 39px;
-  height: 13px;
-  border: 1px solid rgba(245, 197, 152, 0.78);
-  border-radius: 50%;
-  content: "";
-  transform: rotate(-26deg);
-}
-
-.brand__mark span {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #ffe2c5;
-  box-shadow: 0 0 9px rgba(255, 236, 212, 0.9);
+.brand__icon {
+  display: block;
+  width: 42px;
+  height: 42px;
+  flex: none;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(232, 108, 50, 0.25));
 }
 
 .brand__wordmark {
@@ -1515,9 +1494,9 @@ a:focus-visible {
   border-bottom: 1px solid rgba(244, 225, 207, 0.1);
 }
 
-.brand--footer .brand__mark {
-  width: 28px;
-  height: 28px;
+.brand--footer .brand__icon {
+  width: 39px;
+  height: 39px;
 }
 
 .brand--footer .brand__wordmark {
@@ -1634,9 +1613,9 @@ a:focus-visible {
     justify-content: initial;
   }
 
-  .brand__mark {
-    width: 28px;
-    height: 28px;
+  .brand__icon {
+    width: 36px;
+    height: 36px;
   }
 
   .brand__wordmark {
@@ -2125,14 +2104,9 @@ a:focus-visible {
     font-size: 16px;
   }
 
-  .brand__mark {
-    width: 26px;
-    height: 26px;
-  }
-
-  .brand__mark::after {
-    width: 34px;
-    height: 11px;
+  .brand__icon {
+    width: 33px;
+    height: 33px;
   }
 
   .site-nav__actions {
@@ -2233,9 +2207,9 @@ a:focus-visible {
     font-size: 15px;
   }
 
-  .brand--footer .brand__mark {
-    width: 25px;
-    height: 25px;
+  .brand--footer .brand__icon {
+    width: 33px;
+    height: 33px;
   }
 
   .site-footer__links {

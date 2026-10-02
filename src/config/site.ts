@@ -3,6 +3,6 @@ export const siteConfig = {
   ticker: null,
   contractAddress: null,
   clankTradeUrl: "https://clank.trade/",
-  xUrl: null,
+  xUrl: "https://x.com/OfficialMarsInu",
   siteUrl: null,
 } as const;
