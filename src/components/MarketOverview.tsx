@@ -18,7 +18,7 @@ function formatPrice(value: number) {
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
-    maximumSignificantDigits: 6,
+    maximumSignificantDigits: 11,
   }).format(value);
 }
 
@@ -27,7 +27,7 @@ function formatMarketCap(value: number) {
     style: "currency",
     currency: "USD",
     notation: "compact",
-    maximumFractionDigits: 2,
+    maximumSignificantDigits: 11,
   }).format(value);
 }
 
@@ -106,11 +106,11 @@ export function MarketOverview() {
 
           <dl className="market-overview__metrics">
             <div className="market-overview__metric">
-              <dt>PRICE</dt>
+              <dt>PRICE · USD</dt>
               <dd>{snapshot ? formatPrice(snapshot.price) : "—"}</dd>
             </div>
             <div className="market-overview__metric">
-              <dt>MARKET CAP</dt>
+              <dt>MARKET CAP · USD</dt>
               <dd>{snapshot ? formatMarketCap(snapshot.marketCap) : "—"}</dd>
             </div>
           </dl>

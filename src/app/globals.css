@@ -2557,6 +2557,7 @@ a:focus-visible {
 
   .market-overview__metric dd {
     margin-top: 0;
+    font-size: clamp(18px, 4.7vw, 23px);
     text-align: right;
   }
 }
