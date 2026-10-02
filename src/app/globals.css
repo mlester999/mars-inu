@@ -743,8 +743,10 @@ a:focus-visible {
 .speech-bubble {
   position: absolute;
   z-index: 4;
-  top: 16%;
-  left: 7%;
+  top: 25%;
+  right: auto;
+  bottom: auto;
+  left: 48%;
   max-width: 215px;
   padding: 15px 19px 16px;
   border: 1px solid rgba(255, 248, 237, 0.8);
@@ -1077,13 +1079,16 @@ a:focus-visible {
 
 .mission__step {
   position: absolute;
-  width: min(23%, 230px);
-  transform: translate(-4%, -52%);
+  width: min(18%, 230px);
+  transform: translateY(-52%);
 }
 
-.mission__step:nth-child(2) { transform: translate(-33%, -52%); }
-.mission__step:nth-child(3) { transform: translate(-44%, -52%); }
-.mission__step:nth-child(4) { transform: translate(-95%, -52%); }
+.mission__step:nth-child(4) { transform: translate(-100%, -52%); }
+
+.mission__step:nth-child(4) .mission__step-button {
+  align-items: flex-end;
+  text-align: right;
+}
 
 .mission__step-button {
   position: relative;
@@ -1130,6 +1135,11 @@ a:focus-visible {
 .mission__step--active .mission__node span {
   background: var(--solar);
   box-shadow: 0 0 8px var(--solar);
+}
+
+.mission__step:nth-child(4) .mission__node {
+  right: 0;
+  left: auto;
 }
 
 .mission__number {
@@ -1581,6 +1591,11 @@ a:focus-visible {
     width: 59%;
   }
 
+  .speech-bubble {
+    top: 23%;
+    left: 59%;
+  }
+
   .hero__mascot-wrap {
     right: -5%;
     width: 62vw;
@@ -1928,8 +1943,18 @@ a:focus-visible {
     padding: 0 0 0 58px;
   }
 
+  .mission__step:nth-child(4) .mission__step-button {
+    align-items: flex-start;
+    text-align: left;
+  }
+
   .mission__node {
     top: 0;
+    left: 10px;
+  }
+
+  .mission__step:nth-child(4) .mission__node {
+    right: auto;
     left: 10px;
   }
 

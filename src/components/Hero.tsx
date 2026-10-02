@@ -110,10 +110,11 @@ export function Hero() {
           aria-label="Mars Inu astronaut. Click for another message."
         >
           <Image
-            src="/images/mars-inu.png"
+            src="/images/mars-inu-hero.png"
             alt="Mars Inu in an orange astronaut suit"
             fill
-            priority
+            loading="eager"
+            fetchPriority="high"
             sizes="(max-width: 700px) 108vw, (max-width: 1200px) 62vw, 760px"
           />
         </button>

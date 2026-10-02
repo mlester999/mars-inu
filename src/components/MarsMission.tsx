@@ -11,8 +11,8 @@ const steps = [
   { title: "MARS", copy: "We keep exploring." },
 ];
 
-const xPositions = [6, 34, 62, 91];
-const yPositions = [73, 45, 56, 70];
+const xPositions = [6, 34, 64, 97];
+const yPositions = [73, 48, 54, 69];
 
 export function MarsMission() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -54,8 +54,8 @@ export function MarsMission() {
 
         <div className="mission__timeline" aria-label="The Mars Inu journey">
           <svg className="mission__route" viewBox="0 0 1000 340" preserveAspectRatio="none" aria-hidden="true">
-            <path className="mission__route-base" d="M60 248 C140 88 236 106 330 162 S500 278 620 183 S813 100 930 235" />
-            <path className="mission__route-active" d="M60 248 C140 88 236 106 330 162 S500 278 620 183 S813 100 930 235" />
+            <path className="mission__route-base" d="M60 248 C150 98 238 105 340 163 S510 276 640 183 S834 91 970 235" />
+            <path className="mission__route-active" d="M60 248 C150 98 238 105 340 163 S510 276 640 183 S834 91 970 235" />
           </svg>
           <div className="mission__mobile-route" aria-hidden="true" />
           <div
