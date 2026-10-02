@@ -5,8 +5,17 @@ type ClankMarketResponse = {
     symbol?: unknown;
     price?: unknown;
     marketCap?: unknown;
+    quoteCurrency?: unknown;
   };
 };
+
+type ClankUsdRateResponse = Array<{
+  result?: {
+    data?: {
+      price?: unknown;
+    };
+  };
+}>;
 
 const unavailable = () =>
   Response.json(
@@ -34,6 +43,7 @@ export async function GET() {
     const coin = parsed.coin;
     const price = coin?.price;
     const marketCap = coin?.marketCap;
+    const quoteCurrency = coin?.quoteCurrency;
 
     if (
       !coin ||
@@ -42,16 +52,48 @@ export async function GET() {
       price < 0 ||
       typeof marketCap !== "number" ||
       !Number.isFinite(marketCap) ||
-      marketCap < 0
+      marketCap < 0 ||
+      typeof quoteCurrency !== "string" ||
+      !/^0x[\da-f]{40}$/i.test(quoteCurrency)
     ) {
       return unavailable();
     }
 
+    // Clank's initial coin payload uses the pool's quote currency. Match its
+    // tokenUsdg query to convert that quote currency to USD before displaying.
+    const input = encodeURIComponent(
+      JSON.stringify({ "0": { token: quoteCurrency } }),
+    );
+    const rateResponse = await fetch(
+      `https://clank.trade/v1/trpc/exchangeRates.tokenUsdg?batch=1&input=${input}`,
+      {
+        cache: "no-store",
+        headers: { Accept: "application/json" },
+        signal: AbortSignal.timeout(10_000),
+      },
+    );
+
+    if (!rateResponse.ok) return unavailable();
+
+    const rateData = (await rateResponse.json()) as ClankUsdRateResponse;
+    const quoteCurrencyUsd = rateData[0]?.result?.data?.price;
+
+    if (
+      (typeof quoteCurrencyUsd !== "number" &&
+        typeof quoteCurrencyUsd !== "string") ||
+      !Number.isFinite(Number(quoteCurrencyUsd)) ||
+      Number(quoteCurrencyUsd) <= 0
+    ) {
+      return unavailable();
+    }
+
+    const usdRate = Number(quoteCurrencyUsd);
+
     return Response.json(
       {
         symbol: typeof coin.symbol === "string" ? coin.symbol : "MI",
-        price,
-        marketCap,
+        price: price * usdRate,
+        marketCap: marketCap * usdRate,
       },
       { headers: { "Cache-Control": "no-store" } },
     );
