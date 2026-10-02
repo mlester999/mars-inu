@@ -26,8 +26,7 @@ function formatMarketCap(value: number) {
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
-    notation: "compact",
-    maximumSignificantDigits: 11,
+    maximumFractionDigits: 2,
   }).format(value);
 }
 
